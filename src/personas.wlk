@@ -8,6 +8,9 @@
 		gradoDeConcentracion += 3
 	}
 	
+	method darBanioDeVapor(){
+	}
+	
 	method discutir(){
 		gradoDeConcentracion -= 1
 	}
@@ -24,6 +27,12 @@ object bruno {
 	const pesoMinimo = 50000 //gramos
 	
 	const pesoMaximo = 70000 //gramos
+	
+	method feliz() = feliz
+	
+	method sed() = sed
+	
+	method peso() = peso
 	
 	method pesoIdeal() = peso.between(pesoMinimo, pesoMaximo)
 	
@@ -62,15 +71,19 @@ object bruno {
 	}
 }
 
-object ramino{
+object ramiro{
 	
 	var nivelDeContractura = 0
 	
 	var pielGrasosa = false
 	
+	method nivelDeContractura() = nivelDeContractura
+	
+	method pielGrasosa() = pielGrasosa
+	
 	method recibirMasajes(){
 		nivelDeContractura -= 2
-		nivelDeContractura.max(0)
+		nivelDeContractura = nivelDeContractura.max(0)
 	}
 	
 	method darBanioDeVapor(){

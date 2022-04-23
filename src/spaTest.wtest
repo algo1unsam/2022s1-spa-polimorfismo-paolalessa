@@ -1,0 +1,74 @@
+import personas.*
+import spa.*
+
+test "Se atiende a Ramiro" {
+
+	ramiro.diaDeTrabajo()
+	
+	assert.equals(2, ramiro.nivelDeContractura())
+	assert.that(ramiro.pielGrasosa())
+	
+	spa.atender(ramiro)
+	
+	assert.equals(0, ramiro.nivelDeContractura())
+	assert.notThat(ramiro.pielGrasosa())
+}
+
+test "Se atiende a Olivia" {
+	
+	assert.equals(6, olivia.gradoDeConcentracion())
+	
+	spa.atender(olivia)
+	
+	assert.equals(9, olivia.gradoDeConcentracion())
+}
+
+test "Se atiende a Bruno" {
+	
+	bruno.verElNoticiero()
+	
+	assert.notThat(bruno.feliz())
+	
+	assert.equals(55000, bruno.peso())
+	
+	spa.atender(bruno)
+	
+	assert.that(bruno.feliz())
+	
+	assert.equals(54500, bruno.peso())
+
+}
+
+test "Se atiende 2 veces seguidas a Ramiro"{
+	
+	spa.atender(ramiro)
+	
+	assert.equals(0, ramiro.nivelDeContractura())
+	
+	spa.atender(ramiro)
+	
+//	Probando que el nivel de contractura no debe ser menor a 0
+	assert.equals(0, ramiro.nivelDeContractura())
+}
+
+test "Se atiende 2 veces seguidas a Olivia"{
+	
+	spa.atender(olivia)
+	
+	assert.equals(9, olivia.gradoDeConcentracion())
+	
+	spa.atender(olivia)
+	
+	assert.equals(15, olivia.gradoDeConcentracion())
+}
+
+test "Se atiende 2 veces seguidas a Bruno"{
+	
+	spa.atender(bruno)
+	
+	assert.that(bruno.feliz())
+	
+	spa.atender(bruno)
+	
+	assert.that(bruno.feliz())
+}
